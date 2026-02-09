@@ -1,0 +1,271 @@
+
+%-----------------------------------------------------------------------------------------------------------------------------------------------%
+%	The MIT License (MIT)
+%
+%	Copyright (c) 2021 Jitin Nair
+%
+%	Permission is hereby granted, free of charge, to any person obtaining a copy
+%	of this software and associated documentation files (the "Software"), to deal
+%	in the Software without restriction, including without limitation the rights
+%	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+%	copies of the Software, and to permit persons to whom the Software is
+%	furnished to do so, subject to the following conditions:
+%	
+%	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+%	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+%	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+%	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+%	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+%	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+%	THE SOFTWARE.
+%	
+%
+%-----------------------------------------------------------------------------------------------------------------------------------------------%
+
+%----------------------------------------------------------------------------------------
+%	DOCUMENT DEFINITION
+%----------------------------------------------------------------------------------------
+
+% article class because we want to fully customize the page and not use a cv template
+\documentclass[a4paper,12pt]{article}
+
+%----------------------------------------------------------------------------------------
+%	FONT
+%----------------------------------------------------------------------------------------
+
+% % fontspec allows you to use TTF/OTF fonts directly
+% \usepackage{fontspec}
+% \defaultfontfeatures{Ligatures=TeX}
+
+% % modified for ShareLaTeX use
+% \setmainfont[
+% SmallCapsFont = Fontin-SmallCaps.otf,
+% BoldFont = Fontin-Bold.otf,
+% ItalicFont = Fontin-Italic.otf
+% ]
+% {Fontin.otf}
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES
+%----------------------------------------------------------------------------------------
+\usepackage{url}
+\usepackage{parskip} 	
+
+%other packages for formatting
+\RequirePackage{color}
+\RequirePackage{graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[scale=0.9]{geometry}
+
+%tabularx environment
+\usepackage{tabularx}
+
+%for lists within experience section
+\usepackage{enumitem}
+
+% centered version of 'X' col. type
+\newcolumntype{C}{>{\centering\arraybackslash}X} 
+
+%to prevent spillover of tabular into next pages
+\usepackage{supertabular}
+\usepackage{tabularx}
+\newlength{\fullcollw}
+\setlength{\fullcollw}{0.47\textwidth}
+
+%custom \section
+\usepackage{titlesec}				
+\usepackage{multicol}
+\usepackage{multirow}
+
+%CV Sections inspired by: 
+%http://stefano.italians.nl/archives/26
+\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{10pt}{10pt}
+
+%for publications
+\usepackage[style=authoryear,sorting=ynt, maxbibnames=2]{biblatex}
+
+%Setup hyperref package, and colours for links
+\usepackage[unicode, draft=false]{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour}
+\addbibresource{citations.bib}
+\setlength\bibitemsep{1em}
+
+%for social icons
+\usepackage{fontawesome5}
+
+%debug page outer frames
+%\usepackage{showframe}
+
+
+% job listing environments
+\newenvironment{jobshort}[2]
+    {
+    \begin{tabularx}{\linewidth}{@{}l X r@{}}
+    \textbf{#1} & \hfill &  #2 \\[3.75pt]
+    \end{tabularx}
+    }
+    {
+    }
+
+\newenvironment{joblong}[2]
+    {
+    \begin{tabularx}{\linewidth}{@{}l X r@{}}
+    \textbf{#1} & \hfill &  #2 \\[3.75pt]
+    \end{tabularx}
+    \begin{minipage}[t]{\linewidth}
+    \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt,label=--]
+    }
+    {
+    \end{itemize}
+    \end{minipage}    
+    }
+
+
+
+%----------------------------------------------------------------------------------------
+%	BEGIN DOCUMENT
+%----------------------------------------------------------------------------------------
+\begin{document}
+
+% non-numbered pages
+\pagestyle{empty} 
+
+%----------------------------------------------------------------------------------------
+%	TITLE
+%----------------------------------------------------------------------------------------
+
+% \begin{tabularx}{\linewidth}{ @{}X X@{} }
+% \huge{Your Name}\vspace{2pt} & \hfill \emoji{incoming-envelope} email@email.com \\
+% \raisebox{-0.05\height}\faGithub\ username \ | \
+% \raisebox{-0.00\height}\faLinkedin\ username \ | \ \raisebox{-0.05\height}\faGlobe \ mysite.com  & \hfill \emoji{calling} number
+% \end{tabularx}
+
+\begin{tabularx}{\linewidth}{@{} C @{}}
+\Huge{Rudraksh Soni} \\[7.5pt]
+\href{https://github.com/rudrakshSoni-dev}{\raisebox{-0.05\height}\faGithub\ GitHub} \ $|$ \ 
+\href{https://www.linkedin.com/in/rudraksh-soni-7674ab2aa/}{\raisebox{-0.05\height}\faLinkedin\ LinkedIn} \ $|$ \ 
+\href{https://dev-portfolio-rudraksh.netlify.app/}{\raisebox{-0.05\height}\faGlobe \ Portfolio} \ $|$ \ 
+\href{mailto://mrrssoni12@gmail.com}
+{\raisebox{-0.05\height}\faEnvelope \ mrrssoni12@gmail.com} \ $|$ \ 
+\href{tel:+918209613671}{\raisebox{-0.05\height}\faMobile \ +91 820-961-3671} \\
+\end{tabularx}
+
+%----------------------------------------------------------------------------------------
+% EXPERIENCE SECTIONS
+%----------------------------------------------------------------------------------------
+
+%Interests/ Keywords/ Summary
+% \section{Summary}
+% I am a full-stack developer with hands-on experience in NextJs, React, TailwindCSS. I leverage my software engineering skills to bring fascinating web experiences to life. Check out my Github: \href{https://github.com/rudrakshSoni-dev}{click here}. 
+
+%Experience
+\section{Work Experience}
+
+\begin{jobshort}{Full Stack Developer Intern - AnugatAI}{Oct 2025 - Jan 2026}
+\begin{itemize}
+    \item Designed and developed an AI-powered analytics dashboard end-to-end, owning both frontend architecture and backend API development.
+    \item Built scalable REST APIs using Node.js and Express.js, improving data retrieval performance and overall system reliability.
+\end{itemize}
+
+\end{jobshort}
+
+
+%Projects
+%----------------------------------------------------------------------------------------
+%	PROJECTS
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%	PROJECTS
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%	PROJECTS
+%----------------------------------------------------------------------------------------
+\section{Projects}
+
+% --- YC Directory ---
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textbf{\href{https://yc-directory-bjf3.vercel.app/}{YC-Directory}} &  \\[-2pt]
+\multicolumn{2}{@{}l@{}}{\textit{Next.js, Sanity, TailwindCSS, ShadCN, NextAuth}} \\
+\end{tabularx}
+
+\begin{itemize}[nosep, leftmargin=1em, itemsep=3pt]
+  \item Platform where users publish and explore startup pitches.
+  \item Integrated Sanity as a headless CMS for secure, scalable content management.
+  \item GitHub OAuth using NextAuth for seamless authentication.
+  % \item Deployed on Vercel with edge performance optimization.
+\end{itemize}
+
+\vspace{8pt}
+
+% --- Converso LMS ---
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textbf{\href{https://converso-lms-coral.vercel.app/}{Converso-LMS}} &  \\[-2pt]
+\multicolumn{2}{@{}l@{}}{\textit{Next.js, Vapi AI, Clerk Auth, Supabase, TailwindCSS}} \\
+\end{tabularx}
+
+\begin{itemize}[nosep, leftmargin=1em, itemsep=3pt]
+  \item AI-powered learning assistant offering interactive tutoring experience.
+  \item Real-time AI voice tutor using Vapi API.
+  \item Clerk for authentication and subscription billing.
+  \item Database, auth and real-time updates via Supabase.
+  % \item Uses a simple CI/CD pipeline on Github-Actions using Vercel deployement.
+\end{itemize}
+
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION
+%----------------------------------------------------------------------------------------
+\section{Education}
+\begin{tabularx}{\linewidth}{@{}l@{\hspace{1.5cm}}X@{}}	
+
+2023 -- 2027 & BTech, ECE at \textbf{BIT MESRA} \hfill CGPA: 7.72 \\ 
+
+2023 & Class 12th CBSE \hfill 85\% \\
+
+\end{tabularx}
+
+
+%----------------------------------------------------------------------------------------
+%	PUBLICATIONS
+%----------------------------------------------------------------------------------------
+% \section{Publications}
+% \begin{refsection}[citations.bib]
+% \nocite{*}
+% \printbibliography[heading=none]
+% \end{refsection}
+
+%----------------------------------------------------------------------------------------
+%	SKILLS
+%----------------------------------------------------------------------------------------
+\section{Skills}
+\begin{tabularx}{\linewidth}{@{}l X@{}}
+
+\textbf{Languages} & JavaScript (ES6+), TypeScript, C++, SQL \\
+
+\textbf{Backend} & Node.js, Express.js, REST APIs, Authentication (JWT), Prisma ORM \\
+
+\textbf{Frontend} & React, Next.js, TailwindCSS \\
+
+\textbf{Databases} & MongoDB, PostgreSQL \\
+
+\textbf{DevOps \& Tools} & Git, GitHub, GitHub Actions, Docker, Postman, Sanity, Clerk \\
+
+\end{tabularx}
+
+%----------------------------------------------------------------------------------------
+%	ACHIEVEMENTS
+%----------------------------------------------------------------------------------------
+\section{Achievements}
+\begin{itemize}[nosep, leftmargin=1em, itemsep=3pt]
+  \item Solved 300+ Data Structures and Algorithms problems across LeetCode and GFG.
+  \item Started an Ad-Agency The Workk company , learnt a lot about product developement and strategies for marketing.
+  \item Won College Business Plan competition and secured 5-figure cash prize for prototype developement.
+\end{itemize}
+
+\vfill
+\center{\footnotesize Last updated: \today}
+
+
+\end{document}
