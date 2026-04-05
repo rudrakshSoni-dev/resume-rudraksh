@@ -1,0 +1,204 @@
+%-----------------------------------------------------------------------------------------------------------------------------------------------%
+%	The MIT License (MIT)
+%-----------------------------------------------------------------------------------------------------------------------------------------------%
+
+\documentclass[a4paper,12pt]{article}
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES
+%----------------------------------------------------------------------------------------
+
+\usepackage{url}
+\usepackage{parskip} 	
+
+\RequirePackage{color}
+\RequirePackage{graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+
+% Slightly increased usable space
+\usepackage[scale=0.93]{geometry}
+
+\usepackage{tabularx}
+\usepackage{enumitem}
+
+% Global list compression
+\setlist[itemize]{itemsep=0pt, topsep=0.5pt, leftmargin=1em}
+
+% Reduce table vertical padding
+\renewcommand{\arraystretch}{0.90}
+
+\newcolumntype{C}{>{\centering\arraybackslash}X} 
+
+\usepackage{supertabular}
+\newlength{\fullcollw}
+\setlength{\fullcollw}{0.47\textwidth}
+
+\usepackage{titlesec}				
+\usepackage{multicol}
+\usepackage{multirow}
+
+% Reduced section spacing
+\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{2pt}{2pt}
+
+\usepackage[style=authoryear,sorting=ynt,maxbibnames=2]{biblatex}
+
+\usepackage[unicode,draft=false]{hyperref}
+\hypersetup{
+colorlinks=false,
+breaklinks=true,
+pdfborder={0 0 0}
+}
+
+\addbibresource{citations.bib}
+\setlength\bibitemsep{1em}
+
+\usepackage{fontawesome5}
+
+%----------------------------------------------------------------------------------------
+%	JOB ENVIRONMENTS
+%----------------------------------------------------------------------------------------
+
+\newenvironment{jobshort}[2]
+{
+\begin{tabularx}{\linewidth}{@{}l X r@{}}
+\textbf{#1} & \hfill & #2 \\[3pt]
+\end{tabularx}
+}
+{}
+
+\newenvironment{joblong}[2]
+{
+\begin{tabularx}{\linewidth}{@{}l X r@{}}
+\textbf{#1} & \hfill & #2 \\[3pt]
+\end{tabularx}
+\begin{minipage}[t]{\linewidth}
+\begin{itemize}[label=--]
+}
+{
+\end{itemize}
+\end{minipage}
+}
+
+%----------------------------------------------------------------------------------------
+%	BEGIN DOCUMENT
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+\pagestyle{empty}
+
+%----------------------------------------------------------------------------------------
+%	HEADER
+%----------------------------------------------------------------------------------------
+
+\begin{tabularx}{\linewidth}{@{}C@{}}
+\Huge{Rudraksh Soni} \\[3pt]
+
+\textbf{Software Developer} \\[3pt]
+
+\textbf{Node.js | Python | Next.js | TypeScript | FastAPI | PostgreSQL} \\[4pt]
+
+\href{https://github.com/rudrakshSoni-dev}{\textbf{\raisebox{-0.05\height}\faGithub\ GitHub}}
+$|$
+\href{https://www.linkedin.com/in/rudraksh-soni-7674ab2aa/}{\textbf{\raisebox{-0.05\height}\faLinkedin\ LinkedIn}}
+$|$
+\href{https://dev-portfolio-rudraksh.netlify.app/}{\textbf{\raisebox{-0.05\height}\faGlobe\ Portfolio}}
+$|$
+\href{mailto://mrrssoni12@gmail.com}{\textbf{\raisebox{-0.05\height}\faEnvelope\ mrrssoni12@gmail.com}}
+$|$
+\href{tel:+918209613671}{\textbf{\raisebox{-0.05\height}\faMobile\ +91 820-961-3671}}
+\end{tabularx}
+
+%----------------------------------------------------------------------------------------
+%	SKILLS
+%----------------------------------------------------------------------------------------
+
+\section{Skills}
+
+\begin{tabularx}{\linewidth}{@{}l X@{}}
+
+\textbf{Languages} & JavaScript (ES6+), TypeScript, C++, SQL \\
+
+\textbf{Backend} & Node.js, Express.js, REST APIs, Authentication (JWT), Prisma ORM \\
+
+\textbf{Frontend} & React, Next.js, TailwindCSS \\
+
+\textbf{Databases} & MongoDB, PostgreSQL \\
+
+\textbf{DevOps \& Tools} & Git, GitHub, GitHub Actions, Docker, Postman, Sanity, Clerk \\
+
+\end{tabularx}
+
+%----------------------------------------------------------------------------------------
+%	EXPERIENCE
+%----------------------------------------------------------------------------------------
+
+\section{Work Experience}
+
+\begin{jobshort}{SWE Intern - AnugatAI}{Oct 2025 - Jan 2026}
+\begin{itemize}
+\item Deployed the company’s primary website and optimized performance using \textbf{gzip compression}, reducing page latency from \textbf{998 ms → 334 ms} across international servers.(Link)
+\item Deployed backend services supporting production APIs with \textbf{~550 ms response latency matching industry standard} and \textbf{24×7 uptime}.
+\item Implemented and deployed a chatbot system on a client platform serving \textbf{11K+ users}, utilizing load balancing to ensure reliable traffic handling.
+\end{itemize}
+\end{jobshort}
+
+%----------------------------------------------------------------------------------------
+%	PROJECTS
+%----------------------------------------------------------------------------------------
+
+\section{Projects}
+
+\begin{tabularx}{\linewidth}{@{}l r@{}}
+\textbf{\href{https://github.com/rudrakshSoni-dev/resume-analyzer-server}{Resume Analyzer: ATS Score using Multilevel LLM integration and Suggestions}} & \\
+\multicolumn{2}{@{}l@{}}{\small \textit{NextJS, TS, JWT, Cloudinary, Phi3, Ollama, ShadCN, TailwindCSS}} \\
+\end{tabularx}
+
+\begin{itemize}
+\item Built an \textbf{AI-powered resume analysis platform} that evaluates ATS compatibility and generates improvement suggestions using the \textbf{Phi3-7B LLM}.
+\item Designed and implemented a custom \textbf{job scraping engine} to collect LinkedIn job listings based on keyword matching and surface relevant opportunities to users.
+\item Developed backend services for resume processing, AI inference, and job aggregation, deploying LLM workloads with \textbf{Docker} and handling file uploads using \textbf{Cloudinary}.
+\end{itemize}
+
+
+\begin{tabularx}{\linewidth}{@{}l r@{}}
+\href{https://github.com/rudrakshSoni-dev/job-scraper-engine}{\textbf{Job Scraping Engine - Scrape Jobs from Matching Keywords}} & \\
+\multicolumn{2}{@{}l@{}}{\textit{FastAPI, Playwright, SQLAlchemy, PostgreSQL, Redis, Cron}} \\
+\end{tabularx}
+
+\begin{itemize}
+\item Built a distributed job scraping engine using \textbf{Playwright} to collect job listings from multiple platforms based on keyword queries.
+\item Designed backend services with \textbf{FastAPI} and \textbf{SQLAlchemy} to process, clean, and store scraped job data in \textbf{PostgreSQL}.
+\item Implemented \textbf{Redis-based queues and cron scheduling} to run automated scraping jobs and manage worker execution.
+\end{itemize}
+
+\vspace{2pt}
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION
+%----------------------------------------------------------------------------------------
+
+\section{Education}
+
+\begin{tabularx}{\linewidth}{@{}l@{\hspace{1.2cm}}X@{}}
+
+2023 -- 2027 & BTech, Electronics and Communication Engineering at \textbf{BIT Mesra} \hfill \textbf{CGPA 8.58}\\
+
+2023 & Class 12th CBSE \hfill 85\% \\
+
+\end{tabularx}
+
+%----------------------------------------------------------------------------------------
+%	ACHIEVEMENTS
+%----------------------------------------------------------------------------------------
+
+\section{Achievements and Leadership}
+
+\begin{itemize}
+\item Solved \textbf{500+ DSA problems} across LeetCode and GeeksforGeeks.
+\item Won college Business Plan competition securing a 5-figure prize for prototype development.
+\item Secured 1st place in a national-level quiz competition organized by The Hindu in Ranchi.
+\item \textbf{Worked as a CEO} for a early stage project@TheWorkkCompany.
+\end{itemize}
+
+\end{document}
